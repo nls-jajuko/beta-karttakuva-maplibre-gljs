@@ -1,11 +1,21 @@
-
 import { Map } from 'maplibre-gl'
 import 'maplibre-gl/dist/mapbox-gl.css';
+
+/* map style and version selections */
+/* v20 is current published in 2020 */
+/* v21 available in 2021 */
+/* styleUrl refers to TileJson document which describes the Vector Tiles */
+const tileVer = 'v20', styleVer = 'v20',
+  styleName = 'hobby',
+  tileMatrixSet = 'WGS84_Pseudo-Mercator',
+  /* get your own api key at maanmittauslaitos.fi */
+  apiKey = '7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2',
+  styleUrl = `https://avoin-karttakuva.maanmittauslaitos.fi/vectortiles/stylejson/${styleVer}/${styleName}.json?TileMatrixSet=${tileMatrixSet}&api-key=${apiKey}`;
 
 var map = new Map({
     container: 'map', // container id
     hash: true,
-    style: 'https://avoin-karttakuva.maanmittauslaitos.fi/vectortiles/stylejson/v20/hobby.json?TileMatrixSet=WGS84_Pseudo-Mercator&api-key=7cd2ddae-9f2e-481c-99d0-404e7bc7a0b2', // stylesheet location
+    style: styleUrl,
     center: [24.937048, 60.198872], // starting position [lng, lat]
     zoom: 15.29, // starting zoom
 });
